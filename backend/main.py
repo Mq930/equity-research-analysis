@@ -18,7 +18,7 @@ from dotenv import load_dotenv
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_groq import ChatGroq
@@ -46,10 +46,16 @@ app.add_middleware(
 llm = ChatGroq(api_key=GROQ_API_KEY, model="llama-3.1-8b-instant", streaming=True)
 
 _embeddings = None
+
 def get_embeddings():
     global _embeddings
+
     if _embeddings is None:
-        _embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+        _embeddings = GoogleGenerativeAIEmbeddings(
+            model="models/text-embedding-004",
+            google_api_key=os.getenv("GOOGLE_API_KEY")
+        )
+
     return _embeddings
 
 vectorstore = None  # FAISS index, built after /api/process-urls
