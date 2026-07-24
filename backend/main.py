@@ -52,7 +52,7 @@ def get_embeddings():
 
     if _embeddings is None:
         _embeddings = GoogleGenerativeAIEmbeddings(
-            model="models/text-embedding-004",
+            model="models/gemini-embedding-2-preview",
             google_api_key=os.getenv("GOOGLE_API_KEY")
         )
 
