@@ -37,7 +37,7 @@ app = FastAPI(title="Equity Research AI API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # tighten to your actual frontend origin in production
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -216,9 +216,4 @@ async def chat(req: ChatRequest):
     )
 
 
-# -------------------- Serve Frontend (optional, single-port mode) -------------------- #
-# Resolves "../frontend" relative to THIS file, not the current working directory,
-# so it works no matter where you launch uvicorn from.
-_frontend_dir = Path(__file__).resolve().parent.parent / "frontend"
-if _frontend_dir.is_dir():
-    app.mount("/", StaticFiles(directory=str(_frontend_dir), html=True), name="frontend")
+# Frontend is deployed separately on Vercel; this backend is API-only.
