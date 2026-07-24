@@ -1,5 +1,5 @@
 // Point this at wherever your backend is running.
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://equity-research-analysis.onrender.com";
 
 // ---------- Sidebar (mobile) ---------- //
 const sidebar = document.getElementById("sidebar");
