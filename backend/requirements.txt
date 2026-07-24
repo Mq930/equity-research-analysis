@@ -9,7 +9,7 @@ langchain-groq==0.2.1
 langchain-text-splitters==0.3.2
 langchain-core==0.3.15
 
-faiss-cpu==1.9.0
+faiss-cpu
 sentence-transformers==3.2.1
 
 requests==2.32.3
