@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Equity Research AI Terminal</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2>📄 Document Sources</h2>
+        <button id="closeSidebar" class="icon-btn mobile-only" aria-label="Close">✕</button>
+      </div>
+
+      <div id="urlList" class="url-list">
+        <input type="text" class="url-input" placeholder="https://example.com/article" />
+      </div>
+
+      <button id="addUrlBtn" class="btn-secondary">+ Add URL</button>
+      <button id="processBtn" class="btn-primary">Process Sources</button>
+
+      <div id="status" class="status"></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="openSidebar" class="icon-btn mobile-only" aria-label="Open sources">☰</button>
+        <h1>📈 Equity Research AI Terminal</h1>
+      </header>
+
+      <div id="chatWindow" class="chat-window">
+        <div class="message assistant">
+          <div class="bubble">Welcome. I am your Equity Research Assistant. Add and process source URLs in the sidebar for source-grounded analysis, or ask a general question to get started.</div>
+        </div>
+      </div>
+
+      <form id="chatForm" class="chat-input-bar">
+        <input id="chatInput" type="text" placeholder="Ask a financial or research question..." autocomplete="off" />
+        <button type="submit" id="sendBtn" class="btn-primary">Send</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
